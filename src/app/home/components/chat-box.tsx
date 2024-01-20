@@ -26,7 +26,7 @@ export default function ChatBox(props: any) {
             />
           </div>
           <div className="ml-4 basis-5/6">
-            <div className="text-xl font-bold mb-1">{item.title}</div>
+            <div className="text-xl font-bold mb-1 text-black">{item.title}</div>
             <div
               className={`${
                 item.unread ? "font-bold" : "font-normal"
@@ -35,7 +35,7 @@ export default function ChatBox(props: any) {
               <h1
                 className={`${
                   item.unread ? "font-bold" : "font-normal"
-                } text-sm`}
+                } text-sm text-black`}
               >
                 {item.content[0].messenger}
               </h1>

@@ -7,15 +7,22 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from "next/image";
 import { useState } from "react";
 import SearchBar from "~/components/search_bar";
 import Dropdown from "./drowndown_menu";
 import Sidebar from "./sidebar";
+import UserManager from "./user_manager";
+import PostManager from "./post_manager";
+import MessageManager from "./message_manager";
 
 export default function Header() {
   const [showModal, setShowModal] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [options, setOptions] = useState("users");
+
+  const handleSwitchPage = (page: string) => {
+    setOptions(page);
+  };
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -27,7 +34,7 @@ export default function Header() {
 
   return (
     <>
-      <nav className="w-full h-20  border items-center bg-gray-100 py-2 px-6 flex justify-between">
+      <nav className="shadow-lg w-full h-20  border items-center bg-gray-200 py-2 px-6 flex justify-between">
         <FontAwesomeIcon
           icon={isSidebarOpen ? faXmark : faBars}
           className="size-10 cursor-pointer p-3 rounded-full"
@@ -76,7 +83,10 @@ export default function Header() {
           )}
         </div>
       </nav>
-      <Sidebar isOpen={isSidebarOpen} />
+      <Sidebar handleSwitch={handleSwitchPage} isOpen={isSidebarOpen} />
+      {options === "users" && <UserManager />}
+      {options === "messages" && <MessageManager />}
+      {options === "posts" && <PostManager />}
     </>
   );
 }

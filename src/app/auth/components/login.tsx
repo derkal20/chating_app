@@ -47,9 +47,6 @@ export default function Login() {
       </div>
       <div className="flex w-full items-center space-x-2 rounded-2xl bg-gray-50 px-4 ring-2 ring-gray-200 focus-within:ring-blue-400">
         <input
-          type="password"
-          placeholder="Enter password"
-          name="password"
           autoComplete="current-password"
           required
           value={password}

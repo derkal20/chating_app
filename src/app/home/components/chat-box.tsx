@@ -14,9 +14,7 @@ export default function ChatBox(props: any) {
         <div
           key={index}
           onClick={() => handleClick(item)}
-          className={`p-4 ${
-            item.unread ? "bg-gray-200" : "bg-white"
-          } h-24 flex w-full items-center hover:bg-gray-300 cursor-pointer active:bg-gray-400`}
+          className={`p-4 bg-white h-24 flex w-full items-center hover:bg-gray-300 cursor-pointer active:bg-gray-400`}
         >
           <div className="basis-1/6">
             <img
@@ -41,6 +39,7 @@ export default function ChatBox(props: any) {
               </h1>
             </div>
           </div>
+          <div className={`size-2 rounded-full ${item.unread ? 'bg-blue-500' : 'bg-transparent'}`} />
         </div>
       ))}
       <button className="fixed left-56 bottom-4 transform -translate-x-1/2 bg-blue-500 text-white rounded-full p-4 text-lg cursor-pointer size-16 shadow-2xl active:bg-blue-700 hover:bg-blue-600 ">

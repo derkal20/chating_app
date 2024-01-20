@@ -17,25 +17,21 @@ const MessageBubble = ({
           >
             <p className="text-sm">{message}</p>
           </div>
-          <div className="size-10 rounded-full">
-            <Image
-              src={"/images/messenger.png"}
-              alt="user"
-              width={48}
-              height={48}
-              className="rounded-full"
+          <div className="size-12 rounded-full">
+            <img
+              src="/images/messenger.png"
+              className="size-12 rounded-full"
+              alt="avatar"
             />
           </div>
         </div>
       ) : (
         <div className="flex items-center">
-          <div className="size-10 rounded-full">
-            <Image
-              src={"/images/messenger.png"}
-              alt="user"
-              width={48}
-              height={48}
-              className="rounded-full"
+          <div className="size-12 rounded-full">
+            <img
+              src="/images/messenger.png"
+              className="size-12 rounded-full"
+              alt="avatar"
             />
           </div>
           <div className={`mx-4 p-4 rounded-full shadow-md bg-gray-200`}>

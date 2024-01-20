@@ -10,11 +10,10 @@ const config: Config = {
     extend: {
       height: {
         "100": "580px",
-        
       },
       width: {
-        "100" : "580px",
-        "1000": "1080px"
+        "100": "580px",
+        "1000": "1080px",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

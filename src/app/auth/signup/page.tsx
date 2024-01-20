@@ -1,8 +1,10 @@
 export default function SignIn() {
   return (
     <div className="size-full flex">
-      <div className="basis-1/2 bg-red-500"></div>
-      <div className="flex basis-1/2 flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="basis-1/2 flex justify-center items-center">
+      <img src="/images/landing_img.png" alt="thumbnail" className="mt-10"></img>
+      </div>
+      <div className="bg-blue-200 flex basis-1/2 flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Start Messing With New Account

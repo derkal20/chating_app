@@ -38,10 +38,10 @@ const MessageBubble = ({
               className="rounded-full"
             />
           </div>
-        <div className={`mx-4 p-4 rounded-full shadow-md bg-gray-200`}>
-          <p className="text-sm">{message}</p>
+          <div className={`mx-4 p-4 rounded-full shadow-md bg-gray-200`}>
+            <p className="text-sm">{message}</p>
+          </div>
         </div>
-         </div>
       )}
     </div>
   );

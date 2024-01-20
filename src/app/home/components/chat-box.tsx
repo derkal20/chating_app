@@ -1,59 +1,51 @@
-import Image from "next/image";
-import { useEffect } from "react";
+import { faAdd } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-// interface ChatBox {
-//   title: string;
-//   description: string;
-// }
+export default function ChatBox(props: any) {
+  let chatData = props.chats;
 
-export default function ChatBox(data: any) {
-  const formatTextLong = (text: String) => {
-    let maxLength = 8;
-    if (text.length <= maxLength) {
-      return text;
-    } else {
-      return text.slice(0, maxLength) + "...";
-    }
-  };
-
-  const onClickHandle = (chatdata: any) => {
-    data.onItemClick(chatdata);
+  const handleClick = (chatContent: any) => {
+    props.handleClickBox(chatContent);
   };
 
   return (
-    <div
-      onClick={() => onClickHandle(data)}
-      className="flex flex-row items-center w-full h-20 rounded-lg m-1 hover:bg-gray-100 hover:cursor-pointer"
-    >
-      <img
-        className="ml-3 rounded-full"
-        width={48}
-        height={48}
-        alt="chat box avatar"
-        src="images/messenger.png"
-      />
-      <div className="w-full h-full m-2 ">
-        <div className="p-2 flex flex-col">
-          <div className="basis-1/2 flex items-center">
-            <h1 className="p-1 text-xl font-bold">{data.title}</h1>
-            <div
-              className={`ml-3 w-1 h-1 ${
-                data.isread ? "bg-blue-600" : "bg-white"
-              } rounded-full`}
-            ></div>
+    <div className="overflow-auto basis-1/3 flex flex-col border h-full">
+      {chatData.map((item: any, index: number) => (
+        <div
+          key={index}
+          onClick={() => handleClick(item)}
+          className={`p-4 ${
+            item.unread ? "bg-gray-200" : "bg-white"
+          } h-24 flex w-full items-center hover:bg-gray-300 cursor-pointer active:bg-gray-400`}
+        >
+          <div className="basis-1/6">
+            <img
+              src="/images/messenger.png"
+              alt="Avatar"
+              className="size-14 rounded-full"
+            />
           </div>
-          <div className="flex items-center basis-1/2">
-            <h1
-              className={`p-2 text-xs ${
-                data.isread ? "font-bold" : "font-normal"
-              }`}
+          <div className="ml-4 basis-5/6">
+            <div className="text-xl font-bold mb-1">{item.title}</div>
+            <div
+              className={`${
+                item.unread ? "font-bold" : "font-normal"
+              } flex items-center`}
             >
-              {formatTextLong(data.description)}
-            </h1>
-            <p className="text-xs font-light">⋅57min</p>
+              <h1
+                className={`${
+                  item.unread ? "font-bold" : "font-normal"
+                } text-sm`}
+              >
+                {item.content[0].messenger}
+              </h1>
+            </div>
           </div>
         </div>
-      </div>
+      ))}
+      <button className="fixed left-56 bottom-4 transform -translate-x-1/2 bg-blue-500 text-white rounded-full p-4 text-lg cursor-pointer size-16 shadow-2xl active:bg-blue-700 hover:bg-blue-600 ">
+        <FontAwesomeIcon icon={faAdd} />
+      </button>
     </div>
   );
 }

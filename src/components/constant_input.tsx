@@ -27,7 +27,7 @@ const ChatInput: React.FC = () => {
           onClick={handleAttachmentClick}
           className="text-blue-500 focus:outline-none hover:text-blue-600"
         >
-          <FontAwesomeIcon icon={faImage} />
+          <FontAwesomeIcon className="mx-3 size-5" icon={faImage} />
         </button>
         <form className="flex-grow" onSubmit={handleSubmit}>
           <input
@@ -35,7 +35,7 @@ const ChatInput: React.FC = () => {
             value={message}
             onChange={handleChange}
             placeholder="Type a message..."
-            className="w-1000 px-4 py-2 rounded-full focus:outline-none focus:shadow-outline-gray ml-3 border"
+            className="w-96 px-4 py-2 rounded-full focus:outline-none focus:shadow-outline-gray mx-12 border"
           />
         </form>
       </div>

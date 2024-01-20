@@ -1,7 +1,12 @@
+import ChatDetail from "./components/chat-detail";
+import Header from "./components/header";
+import RecentChat from "./components/recent_chat";
+
 export default function Home() {
   return (
-    <div>
-      <p className="text-gray-400">home</p>
-    </div>
+      <Header>
+        <RecentChat>
+        </RecentChat>
+      </Header>
   );
 }
